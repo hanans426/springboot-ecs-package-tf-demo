@@ -123,3 +123,8 @@ Metadata:
           - vswitch_id
         Label:
           default: 可用区配置
+Outputs:
+  server_address:
+    Description:
+      zh-cn: 访问地址
+      en: ServerAddress
