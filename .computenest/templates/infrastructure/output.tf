@@ -1,3 +1,3 @@
 output "server_address" {
-  value  = format("http://%s:80", alicloud_instance.instance.public_ip)
+  value  = format("http://%s:8080", alicloud_instance.instance.public_ip)
 }

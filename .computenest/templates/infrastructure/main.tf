@@ -39,12 +39,12 @@ resource "alicloud_security_group" "group" {
   vpc_id      = var.vpc_id
 }
 
-resource "alicloud_security_group_rule" "allow_80_tcp" {
+resource "alicloud_security_group_rule" "allow_8080_tcp" {
   type              = "ingress"
   ip_protocol       = "tcp"
   nic_type          = "intranet"
   policy            = "accept"
-  port_range        = "80/80"
+  port_range        = "8080/8080"
   priority          = 1
   security_group_id = alicloud_security_group.group.id
   cidr_ip           = "0.0.0.0/0"
