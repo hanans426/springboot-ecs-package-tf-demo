@@ -6,7 +6,7 @@ resource "alicloud_instance" "instance" {
   period                     = var.period
   period_unit                = var.period_unit
   instance_type              = var.instance_type
-  image_id                   = "computenest_image" # 按需替换为您自己的镜像，若使用此占位符，需要在服务创建成功后，编辑服务进行镜像关联
+  image_id                   = "centos_7_9_x64_20G_alibase_20240403.vhd" # 按需替换为您自己的镜像，若使用此占位符，需要在服务创建成功后，编辑服务进行镜像关联
   system_disk_size           = 200
   system_disk_category       = "cloud_essd"
   password                   = var.password
@@ -39,12 +39,12 @@ resource "alicloud_security_group" "group" {
   vpc_id      = var.vpc_id
 }
 
-resource "alicloud_security_group_rule" "allow_8080_tcp" {
+resource "alicloud_security_group_rule" "allow_80_tcp" {
   type              = "ingress"
   ip_protocol       = "tcp"
   nic_type          = "intranet"
   policy            = "accept"
-  port_range        = "8080/8080"
+  port_range        = "80/80"
   priority          = 1
   security_group_id = alicloud_security_group.group.id
   cidr_ip           = "0.0.0.0/0"

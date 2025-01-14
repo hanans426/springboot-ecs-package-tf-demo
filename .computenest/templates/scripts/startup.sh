@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/admin/application
-/bin/bash deploy.sh start
+yum install -y nginx
+systemctl start nginx
